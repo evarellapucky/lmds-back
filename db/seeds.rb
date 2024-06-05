@@ -10,7 +10,12 @@
 
 require 'faker'
 Article.destroy_all
+User.destroy_all
+
+
+User.create(email: "toto@example.com", password: 'exo1234*')
+
 
 30.times do
-  Article.create(title: Faker::Book.title, content: Faker::Lorem.paragraphs(number: 1))
+  Article.create(title: Faker::Book.title, content: Faker::Lorem.paragraphs(number: 3), user: User.first)
 end
